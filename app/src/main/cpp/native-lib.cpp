@@ -1,16 +1,18 @@
 #include <jni.h>
 #include <android/log.h>
 #include <GLES2/gl2.h>
+#include <string>
+
 
 extern "C" {
     JNIEXPORT void JNICALL
-    Java_your_package_name_GLRenderer_nativeInit(JNIEnv* env, jobject obj);
+    Java_com_guangoon_learnopengl_GLRenderer_nativeInit(JNIEnv* env, jobject obj);
 
     JNIEXPORT void JNICALL
-    Java_your_package_name_GLRenderer_nativeDrawFrame(JNIEnv* env, jobject obj);
+    Java_com_guangoon_learnopengl_GLRenderer_nativeDrawFrame(JNIEnv* env, jobject obj);
 
     JNIEXPORT void JNICALL
-    Java_your_package_name_GLRenderer_nativeSurfaceChanged(JNIEnv* env, jobject obj, jint width, jint height);
+    Java_com_guangoon_learnopengl_GLRenderer_nativeSurfaceChanged(JNIEnv* env, jobject obj, jint width, jint height);
 }
 
 GLuint program;
@@ -73,15 +75,15 @@ void renderFrame() {
     checkGlError("renderFrame");
 }
 
-JNIEXPORT void JNICALL Java_your_package_name_GLRenderer_nativeInit(JNIEnv* env, jobject obj) {
+JNIEXPORT void JNICALL Java_com_guangoon_learnopengl_GLRenderer_nativeInit(JNIEnv* env, jobject obj) {
     initShaders();
 }
 
-JNIEXPORT void JNICALL Java_your_package_name_GLRenderer_nativeDrawFrame(JNIEnv* env, jobject obj) {
+JNIEXPORT void JNICALL Java_com_guangoon_learnopengl_GLRenderer_nativeDrawFrame(JNIEnv* env, jobject obj) {
     renderFrame();
 }
 
-JNIEXPORT void JNICALL Java_your_package_name_GLRenderer_nativeSurfaceChanged(JNIEnv* env, jobject obj, jint width, jint height) {
+JNIEXPORT void JNICALL Java_com_guangoon_learnopengl_GLRenderer_nativeSurfaceChanged(JNIEnv* env, jobject obj, jint width, jint height) {
     glViewport(0, 0, width, height);
 }
 
